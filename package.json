@@ -1,6 +1,6 @@
 {
   "name": "zergpool-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Api interface for zergpool.com with typescript declaration",
   "main": "dist/index.js",
   "types": "./lib/main.d.ts",
