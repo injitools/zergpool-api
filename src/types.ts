@@ -138,7 +138,7 @@ export interface ZergpoolApiBlock {
   finder: string // example: "bc1qgwf6t..."
 }
 
-export type ZergpoolApiBlocksResponse = ZergpoolApiCurrency[]
+export type ZergpoolApiBlocksResponse = ZergpoolApiBlock[]
 
 export interface ZergpoolApiMiner {
   algo: string // example: "neoscrypt"
