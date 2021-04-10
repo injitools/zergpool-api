@@ -21,7 +21,7 @@ wallet and walletEx endpoints have server side limiting for requests, so sometim
 
 ## Response Types
 ```typescript
-ZergpoolApiWalletResponse {
+interface ZergpoolApiWalletResponse {
   currency: string // example: "BTC"
   unsold: number // example: 0.00050362     --currently in exchange or immature statuses
   balance: number // example: 0.00000000    --matured ready for payment balance
@@ -33,7 +33,7 @@ ZergpoolApiWalletResponse {
   total: number // example: 0.00050362      --total unpaid + total payed
 }
 
-ZergpoolApiWalletExMiner {
+interface ZergpoolApiWalletExMiner {
   version: string // example: "ccminer\/1.8.2"  --miners name
   password: string // example: "d=96"           --password configuration of your miner identified by a pool
   ID: string // example: "d=96"                 --value specified in ID= param of miner's password
@@ -44,14 +44,14 @@ ZergpoolApiWalletExMiner {
   rejected: number // example: 0                --hashrate rejected by pool
 }
 
-ZergpoolApiWalletExPayout {
+interface ZergpoolApiWalletExPayout {
   time: string // example: "1617480306",
   amount: number // example: 0.00221229,
   fee: number // example: 0.00001008,
   tx: string // example: "fbe6338404fa3e8b33d545883ae68be0eadf56b01b50a1c40f2746d5fe68ea3b"
 }
 
-ZergpoolApiWalletExBlock {
+interface ZergpoolApiWalletExBlock {
   symbol: string // example: "TZC",
   height: number // example: 1793180,
   amount: number // example: 50,
@@ -62,7 +62,7 @@ ZergpoolApiWalletExBlock {
   blockhash: string // example: "e3235d2451ea7680107b7b25f53e03a854b54d31be3ccf26cf3e0162aea269e3"
 }
 
-ZergpoolApiWalletExResponse {
+interface ZergpoolApiWalletExResponse {
   currency: string // example: "BTC"
   unsold: number // example: 0.00050362     --currently in exchange or immature statuses
   balance: number // example: 0.00000000    --matured ready for payment balance
@@ -77,7 +77,7 @@ ZergpoolApiWalletExResponse {
   blocks: ZergpoolApiWalletExBlock[]
 }
 
-ZergpoolApiStatusAlgorithm {
+interface ZergpoolApiStatusAlgorithm {
   name: string // example: "allium"                           --algorithm name
   port: number // example: 6433                               --TCP connection port
   coins: number // example: 1                                 --amount of coins available in subject algo
@@ -99,11 +99,11 @@ ZergpoolApiStatusAlgorithm {
   hashrate_last24h_solo: number // example: 1098065           --average hashrate during last 24h in solo mode
 }
 
-ZergpoolApiStatusResponse {
+interface ZergpoolApiStatusResponse {
   [algo: string]: ZergpoolApiStatusAlgorithm
 }
 
-ZergpoolApiCurrency {
+interface ZergpoolApiCurrency {
   algo: string // example: "lyra2v2"
   port: number // example: 4533
   name: string // example: "Absolute"                 --coin name
@@ -143,11 +143,11 @@ ZergpoolApiCurrency {
   symbol: string // example: "ABS"
 }
 
-ZergpoolApiCurrenciesResponse {
+interface ZergpoolApiCurrenciesResponse {
   [currency: string]: ZergpoolApiCurrency
 }
 
-ZergpoolApiBlock {
+interface ZergpoolApiBlock {
   symbol: string // example: "XDN"
   time: string // example: "1618048487"                         --unix timestamp
   height: string // example: "355848"
@@ -160,15 +160,15 @@ ZergpoolApiBlock {
   finder: string // example: "bc1qgwf6t..."
 }
 
-ZergpoolApiBlocksResponse = ZergpoolApiCurrency[]
+type ZergpoolApiBlocksResponse = ZergpoolApiCurrency[]
 
-ZergpoolApiMiner {
+interface ZergpoolApiMiner {
   algo: string // example: "neoscrypt"
   version: string // example: "NiceHash\/1.0.0"
   count: string // example: "4762"
 }
 
-ZergpoolApiMinersResponse {
+interface ZergpoolApiMinersResponse {
   [currency: string]: ZergpoolApiMiner
 }
 
